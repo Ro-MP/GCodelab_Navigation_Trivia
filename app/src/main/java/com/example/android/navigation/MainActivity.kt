@@ -19,6 +19,7 @@ package com.example.android.navigation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.example.android.navigation.databinding.ActivityMainBinding
@@ -26,17 +27,26 @@ import com.example.android.navigation.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
 
+    private lateinit var drawerLayout: DrawerLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
+        // initialize drawerLayout
+        drawerLayout = binding.drawerLayout
 
         // find navigation controller object
         val navController = this.findNavController(R.id.nav_host_fragment)
         // Link navigation controller to the app bar
-        NavigationUI.setupActionBarWithNavController(this, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        // Connect the navigation drawer to the navigation controller so when the users select
+        //      items in navigation drawer, the app navigates to the appropriate Fragment
+        NavigationUI.setupWithNavController(binding.navView, navController)
+
+        //
 
 
 
@@ -47,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.option_menu, menu)
             }
-
+0
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             }
         })
@@ -57,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp()
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
 
