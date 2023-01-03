@@ -20,6 +20,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
@@ -46,14 +49,19 @@ class GameWonFragment : Fragment() {
 
         setupMenu()
 
+
+
+
+
+
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         val text = "NumCorrect: ${args.numCorrect} \nQuestions answered: ${args.questionsAnswered}"
         Toast.makeText(context, text, Toast.LENGTH_LONG)
             .show()
 
+
         return binding.root
     }
-
 
 
 

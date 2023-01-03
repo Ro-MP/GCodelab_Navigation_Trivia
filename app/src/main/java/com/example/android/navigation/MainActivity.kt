@@ -17,16 +17,22 @@
 package com.example.android.navigation
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.LifecycleObserver
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.example.android.navigation.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
 
 class MainActivity : AppCompatActivity() {
 
 
+    private var isBackPressed = false
     private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +52,21 @@ class MainActivity : AppCompatActivity() {
         //      items in navigation drawer, the app navigates to the appropriate Fragment
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-        //
+
+
+
+
+        // BackButton
+        /*
+        val backPressedCallback = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                 Toast.makeText(this@MainActivity, "Holis", Toast.LENGTH_SHORT).show()
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, backPressedCallback)
+
+         */
+
 
 
 
@@ -69,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.nav_host_fragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
+
 
 
 }
