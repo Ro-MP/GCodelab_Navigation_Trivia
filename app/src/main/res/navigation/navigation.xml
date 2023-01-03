@@ -72,4 +72,9 @@
         android:name="com.example.android.navigation.RulesFragment"
         android:label="@string/label_rules_fragment"
         tools:layout="@layout/fragment_rules" />
+    <fragment
+        android:id="@+id/intentsFragment"
+        android:name="com.example.android.navigation.IntentsFragment"
+        android:label="fragment_intents"
+        tools:layout="@layout/fragment_intents" />
 </navigation>

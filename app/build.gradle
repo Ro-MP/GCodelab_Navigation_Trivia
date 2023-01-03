@@ -34,6 +34,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
     }
     buildTypes {
         release {
@@ -68,5 +69,8 @@ dependencies {
     // Material
     implementation "com.google.android.material:material:$materialVersion"
 
+    implementation("androidx.multidex:multidex:2.0.1")
+
+    implementation("com.android.support:support-annotations:28.0.0")
 
 }

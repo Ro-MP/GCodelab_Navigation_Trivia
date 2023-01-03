@@ -49,23 +49,16 @@ class GameWonFragment : Fragment() {
 
         setupMenu()
 
-
-
-
-
-
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         val text = "NumCorrect: ${args.numCorrect} \nQuestions answered: ${args.questionsAnswered}"
         Toast.makeText(context, text, Toast.LENGTH_LONG)
             .show()
 
-
         return binding.root
     }
 
 
-
-
+    // Build implicit Intent to share the score
     private fun getShareintent() : Intent {
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         val shareIntent = Intent(Intent.ACTION_SEND)
@@ -74,6 +67,7 @@ class GameWonFragment : Fragment() {
         return shareIntent
     }
 
+    // Run the Intent
     private fun shareSucces(): Boolean {
         startActivity(getShareintent())
         return true
@@ -84,7 +78,7 @@ class GameWonFragment : Fragment() {
         (requireActivity() as MenuHost).addMenuProvider(object: MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.winner_menu, menu)
-                // Make sure the shareIntent resolves to an Activity
+                // ResolveActivity - Make sure the shareIntent resolves to an Activity
                 if (getShareintent().resolveActivity(requireActivity().packageManager) == null) {
                     menu.findItem(R.id.share).isVisible = false
                 }

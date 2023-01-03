@@ -41,4 +41,5 @@
     <string name="label_game_over_fragment">Game Over</string>
     <string name="label_about_fragment">About Trivia</string>
     <string name="label_rules_fragment">Trivia Rules</string>
+    <string name="intents">Intents</string>
 </resources>

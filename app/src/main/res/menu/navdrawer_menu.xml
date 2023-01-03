@@ -11,4 +11,9 @@
         android:title="@string/about"
         android:icon="@drawable/about_android_trivia"
         />
+    <item
+        android:id="@+id/intentsFragment"
+        android:title="@string/intents"
+        android:icon="@drawable/ic_intents"
+        />
 </menu>

@@ -53,9 +53,6 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.navView, navController)
 
 
-
-
-
         // BackButton
         /*
         val backPressedCallback = object : OnBackPressedCallback(true){
@@ -66,9 +63,6 @@ class MainActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, backPressedCallback)
 
          */
-
-
-
 
 
         // Implementacion de Menu en AppBar
